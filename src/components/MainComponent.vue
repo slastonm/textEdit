@@ -42,7 +42,7 @@ export default {
           background: '#FF0',
         },
         {
-          text: 'My \nlovely',
+          text: 'My \n\nlovely',
           fontSize: '16px',
           color: '#F00',
         },
@@ -67,18 +67,24 @@ export default {
       this.$set(this, 'elements', elements)
     },
     formatText: function(text) {
-      return text.replace('\n', '<br/>')
+      return (text || '').replace(/\n/g, '<br />')
     },
     changeSelected: function(index) {
       this.selected = index
     },
+    updateText: function([index, html]) {
+      this.elements[index].text = html.innerHTML.replace(/<br>/g, '\n')
+    }
   },
 }
 </script>
 
 <template>
   <div>
-    <list-component @changeSelected="changeSelected" :elements="formattedElements" />
+    <list-component 
+    @updateText="updateText" 
+    @changeSelected="changeSelected" 
+    :elements="formattedElements" />
     <control-component @elUpdate="updateElement" />
     <source-component :raw-data="elements" />
   </div>
