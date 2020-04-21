@@ -26,7 +26,7 @@
 
 <script>
 
-import EditList from './components/EditListComponent'
+import EditList from './components/editListComponent'
 
 import MainComponent from './components/MainComponent.vue'
 

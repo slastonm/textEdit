@@ -28,14 +28,13 @@
 </template>
 
 <script>
-import TextBlock from './TextBlock.vue'
+// import TextBlock from './TextBlock.vue'
 
 export default {
   name: 'EditList',
   components: {
-    TextBlock,
-  }
-
+    // TextBlock,
+  },
   props: {
     msg: {
       default: '',
@@ -75,14 +74,11 @@ export default {
       }
       this.background = 'white' 
     }
-  }
-
-    update(event) {
+  },
+  update(event) {
       console.log(event)
       this.$emit('update', event.target)
-    },
-  },
-
+  }
 }
 </script>
 
