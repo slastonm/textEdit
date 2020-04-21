@@ -24,6 +24,8 @@ export default {
         borderRadius: element.borderRadius,
       }"
       @click="$emit('changeSelected', index)"
+      contenteditable="true" 
+      @input="$emit('updateText', [index, $event.target])"
     />
   </div>
 </template>
