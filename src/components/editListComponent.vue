@@ -1,38 +1,52 @@
 <template>
-<div class="container"
-     spellcheck="false">
+  <div class="container" spellcheck="false">
+    <div class="controls">
+      <button @click="changeColor">
+        Change color
+      </button>
+      <button @click="changeFontSize">
+        Change font size
+      </button>
+      <button @click="changeBackground">
+        Change background
+      </button>
+    </div>
+
+    <TextBlock v-for="item in list" 
+    :key="item.text"
+    :msg="item.text"
+    :color="item.color"
+    :background="item.backgroundColor"
+    :fontsize="item.fontSize"
+    />
   </div>
 
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: {
-      default: ''
-    },
-    color: {
-      type: String,
-      default: 'black'
-    },
-    background: {
-      type: String,
-      default: 'red'
-    },
-    fontSize: {
-      type: Number,
-      default: 12
-    }
-  },
-  mounted:function(){
-    this.$el.innerText = this.msg;
-  },
+import TextBlock from './TextBlock.vue'
 
+export default {
+  name: 'EditList',
+  components: {
+    TextBlock,
+  },
+  props: ['list'],
   methods: {
-    update(event){
-      console.log(event)
-      this.$emit('update',event.target);
+    changeColor(){
+      if(this.color === 'red'){
+        this.color = 'black'
+      }
+      this.color = 'red'
+    },
+    changeFontSize(){
+      this.fontSize =this.fontSize+1
+    },
+    changeBackground(){
+      if (this.background === 'black'){
+        this.background = '' 
+      }
+      this.background = 'white' 
     }
   }
 }

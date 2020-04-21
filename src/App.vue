@@ -1,31 +1,18 @@
 <template>
   <div id="app">
-    <div class="controls">
-      <button @click="changeColor">
-        Change color
-      </button>
-      <button @click="changeFontSize">
-        Change font size
-      </button>
-      <button @click="changeBackground">
-        Change background
-      </button>
-    </div>
-    <HelloWorld :msg="msg"  @update="msg = $event"/>
-    <div>
-      {{$data}}
+    <EditList :list="textBlocks"></EditList>
       <!-- <pre>{{$data |json }}</pre> -->
-    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import EditList from './components/EditListComponent'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    // HelloWorld,
+    EditList,
   },
   data: function () {
     return {
@@ -36,14 +23,22 @@ export default {
           color:'#fff'
         },
         {
+          text:'<br/>',
+        },
+        {
           text:'My lovely',
           backgroundColor: 'rgb(248, 187, 208)',
           color:'#fff'
         },
         {
           text:'little',
-          backgroundColor: 'rgb(248, 187, 208)',
-          color:'#fff'
+          color:'rgb(136, 14, 79)',
+          fontSize:54
+        },
+        {
+          text:'Ponny',
+          backgroundColor: 'rgb(248, 187, 0)',
+          color:'rgb(186, 104, 200)'
         },
       ]
     }
