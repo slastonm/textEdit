@@ -16,7 +16,10 @@ export default {
         return {
           color: 'inherit',
           fontSize: '12px',
-          'background-color': 'inherit',
+          background: 'inherit',
+          paddingLeft: element.background ? '3px' : 'inherit',
+          paddingRight: element.background ? '3px' : 'inherit',
+          borderRadius: element.background ? '4px' : 'inherit',
           ...element,
           text: this.formatText(element.text),
         }
@@ -75,10 +78,8 @@ export default {
 
 <template>
   <div>
-    <h1>{{selected}}</h1>
     <list-component @changeSelected="changeSelected" :elements="formattedElements" />
     <control-component @elUpdate="updateElement" />
-    <input v-model="elements[0].text" />
     <source-component :raw-data="elements" />
   </div>
 </template>

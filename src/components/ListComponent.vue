@@ -11,7 +11,7 @@ export default {
 
 <template>
   <div>
-    <span 
+    <span
       v-for="(element, index) in elements"
       :key="index"
       v-html="element.text"
@@ -19,9 +19,12 @@ export default {
         color: element.color,
         background: element.background,
         fontSize: element.fontSize,
+        paddingLeft: element.paddingLeft,
+        paddingRight: element.paddingRight,
+        borderRadius: element.borderRadius,
       }"
       @click="$emit('changeSelected', index)"
-      />
+    />
   </div>
 </template>
 
