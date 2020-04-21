@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <div class="controls">
+    <main-component/>
+    <!-- <div class="controls">
       <button @click="changeColor">
         Change color
       </button>
@@ -14,18 +15,19 @@
     <HelloWorld :msg="msg"  @update="msg = $event"/>
     <div>
       {{$data}}
-      <!-- <pre>{{$data |json }}</pre> -->
-    </div>
+      <pre>{{$data |json }}</pre>
+    </div> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+import MainComponent from './components/MainComponent.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MainComponent
   },
   data: function () {
     return {

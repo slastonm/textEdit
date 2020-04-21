@@ -1,8 +1,5 @@
 <template>
-<div class="container"
-     spellcheck="false">
-  </div>
-
+  <div class="container" spellcheck="false"></div>
 </template>
 
 <script>
@@ -10,36 +7,36 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: {
-      default: ''
+      default: '',
     },
     color: {
       type: String,
-      default: 'black'
+      default: 'black',
     },
     background: {
       type: String,
-      default: 'red'
+      default: 'red',
     },
     fontSize: {
       type: Number,
-      default: 12
-    }
+      default: 12,
+    },
   },
-  mounted:function(){
-    this.$el.innerText = this.msg;
+  mounted: function() {
+    this.$el.innerText = this.msg
   },
 
   methods: {
-    update(event){
+    update(event) {
       console.log(event)
-      this.$emit('update',event.target);
-    }
-  }
+      this.$emit('update', event.target)
+    },
+  },
 }
 </script>
 
 <style scoped>
-.container{
+.container {
   color: rgb(255, 255, 255);
   opacity: 1;
   border-radius: 6px;
@@ -59,5 +56,4 @@ export default {
   text-shadow: rgba(0, 0, 0, 0.2) 2px 2px 0px;
   line-height: 1.5em;
 }
-
 </style>
