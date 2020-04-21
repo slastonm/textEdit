@@ -1,5 +1,6 @@
 <template>
-  <div class="container" spellcheck="false">
+
+  <!-- <div class="container" spellcheck="false">
     <div class="controls">
       <button @click="changeColor">
         Change color
@@ -19,7 +20,10 @@
     :background="item.backgroundColor"
     :fontsize="item.fontSize"
     />
-  </div>
+  </div> -->
+
+
+  <div class="container" spellcheck="false"></div>
 
 </template>
 
@@ -30,9 +34,32 @@ export default {
   name: 'EditList',
   components: {
     TextBlock,
+  }
+
+  props: {
+    msg: {
+      default: '',
+    },
+    color: {
+      type: String,
+      default: 'black',
+    },
+    background: {
+      type: String,
+      default: 'red',
+    },
+    fontSize: {
+      type: Number,
+      default: 12,
+    },
   },
-  props: ['list'],
+  mounted: function() {
+    this.$el.innerText = this.msg
+
+  },
+  // props: ['list'],
   methods: {
+
     changeColor(){
       if(this.color === 'red'){
         this.color = 'black'
@@ -49,11 +76,18 @@ export default {
       this.background = 'white' 
     }
   }
+
+    update(event) {
+      console.log(event)
+      this.$emit('update', event.target)
+    },
+  },
+
 }
 </script>
 
 <style scoped>
-.container{
+.container {
   color: rgb(255, 255, 255);
   opacity: 1;
   border-radius: 6px;
@@ -73,5 +107,4 @@ export default {
   text-shadow: rgba(0, 0, 0, 0.2) 2px 2px 0px;
   line-height: 1.5em;
 }
-
 </style>

@@ -1,18 +1,41 @@
 <template>
   <div id="app">
+
     <EditList :list="textBlocks"></EditList>
-      <!-- <pre>{{$data |json }}</pre> -->
+
+    <main-component/>
+    <!-- <div class="controls">
+      <button @click="changeColor">
+        Change color
+      </button>
+      <button @click="changeFontSize">
+        Change font size
+      </button>
+      <button @click="changeBackground">
+        Change background
+      </button>
+    </div>
+    <HelloWorld :msg="msg"  @update="msg = $event"/>
+    <div>
+      {{$data}}
+      <pre>{{$data |json }}</pre>
+    </div> -->
+
   </div>
 </template>
 
 <script>
+
 import EditList from './components/EditListComponent'
+
+import MainComponent from './components/MainComponent.vue'
+
 
 export default {
   name: 'App',
   components: {
-    // HelloWorld,
     EditList,
+    MainComponent
   },
   data: function () {
     return {
